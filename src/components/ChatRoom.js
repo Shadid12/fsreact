@@ -10,8 +10,12 @@ class ChatRoom extends React.Component {
 		}
 		
 		this.socket = SocketIOClient('http://localhost:3001/')
-		this.handleChange = this.handleChange.bind(this);
-    	this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this)
+    	this.handleSubmit = this.handleSubmit.bind(this)
+
+    	this.socket.on('message', (o) => {
+			this.setState({msg: this.state.msg.concat(o)}) 
+		})
 	}
 
 	handleChange = (e) => {
@@ -21,7 +25,6 @@ class ChatRoom extends React.Component {
 	handleSubmit = (e) => {
 		console.log(this.state.value)
 		this.socket.emit('message', this.state.value)
-		this.setState({msg: this.state.msg.concat(this.state.value)})
 		this.setState({value: ''})
 		e.preventDefault()
 	}
