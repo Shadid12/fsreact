@@ -16,9 +16,10 @@ class App extends Component {
 	      	<div>
 	      		<ul>
 			        <li><Link to="/login">Login</Link></li>
+			        <li><Link to="/chat">ChatRoom</Link></li>
 			    </ul>
-	      		<ChatRoom />
 	      		<Route exact path="/login" component={LogIn}/>
+	      		<Route exact path="/chat" component={ChatRoom}/>
 	      	</div>
         </Router>
       </div>
