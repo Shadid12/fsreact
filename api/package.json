@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "mongoose": "^4.11.12",
     "socket.io": "^2.0.3"
   }
 }
